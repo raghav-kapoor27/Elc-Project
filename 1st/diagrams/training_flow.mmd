@@ -1,0 +1,17 @@
+flowchart TD
+  A[Lazy Dataset Registry] --> B[Icentia11k]
+  A --> C[PTB-XL Lead I]
+  A --> D[STAFF III and MIT-BIH]
+  B --> E[Noise Augmentation]
+  E --> F[Masked ECG Reconstruction]
+  E --> G[Contrastive Learning]
+  E --> H[Denoising Autoencoder]
+  F --> I[Foundation Model]
+  G --> I
+  H --> I
+  C --> J[Pathology Adaptation: Normal, MI, ST/T]
+  I --> J
+  J --> K[Normal Embeddings]
+  K --> L[Deep SVDD + Mahalanobis]
+  D --> M[External Evaluation and Robustness]
+  L --> M

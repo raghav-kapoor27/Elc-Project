@@ -1,0 +1,15 @@
+flowchart LR
+  A[ESP32 Lead I ECG Sensor] --> B[Streaming Window Buffer]
+  B --> C[Preprocessing: resample, baseline removal, bandpass, wavelet, normalize]
+  C --> D[4-Block 1D CNN Frontend]
+  D --> E[6-Layer Transformer Encoder, 8 Heads, 256 Dim]
+  E --> F[Embedding]
+  E --> G[Signal Quality Index Head]
+  F --> H[Deep SVDD]
+  F --> I[Mahalanobis Scorer]
+  H --> J[Anomaly Score]
+  I --> J
+  J --> K[OMI Suspicion Score]
+  G --> L[signal_quality and noise_score]
+  K --> M[Real-Time JSON Output]
+  L --> M
